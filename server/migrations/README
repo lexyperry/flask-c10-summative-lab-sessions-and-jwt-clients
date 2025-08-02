@@ -1,0 +1,80 @@
+# BookTracker API
+
+# Flask Sessions & JWT Client Lab
+
+## Project Description
+
+This project is a simple RESTful API built using Flask that allows users to sign up, log in, and manage a personal list of books. Authentication is handled through Flask sessions. It supports user registration, login/logout, and CRUD operations on books associated with the logged-in user.
+
+---
+
+## Features
+
+- User Signup & Login with hashed passwords using Flask-Bcrypt
+- Session-based authentication
+- Add, view, edit, and delete books
+- Pagination for the list of books
+
+---
+
+## Technologies Used
+
+- Python
+- Flask
+- Flask-SQLAlchemy
+- Flask-Migrate
+- Flask-Bcrypt
+- Flask-RESTful
+- SQLite
+
+---
+
+## Setup & Installation
+
+### 1. Clone the Repository
+
+```bash
+git clone <your-repo-url>
+cd flask-c10-summative-lab-sessions-and-jwt-clients/server
+
+### 2. Setup Virtual Environment
+pipenv install
+pipenv shell
+
+### 3. Install dependencies (if using pip)
+pip install -r requirements.txt
+
+### 4. Run Database Migrations
+flask db init        # only once
+flask db migrate -m "Initial"
+flask db upgrade
+
+## 5. Seed the database
+python seed.py
+
+### 6. Run the app 
+flask run
+
+
+POST /signup - Create new user
+POST /login - Log user in
+DELETE /logout - Log user out
+GET /check_session - Get current user
+GET /books - List books (paginated)
+POST /books - Add new book
+PATCH /books/<id> - Update book
+DELETE /books/<id> - Delete book
+
+## Project Stucture
+
+
+server/
+├── app.py # Flask app initialization
+├── config.py # App configuration settings
+├── models.py # SQLAlchemy models (User, Book)
+├── resources.py # API routes and logic
+├── seed.py # Database seeding script
+├── migrations/ # Alembic migration folder
+├── db.sqlite3 # SQLite database (auto-created)
+├── requirements.txt # Python dependencies
+└── README.md # You are here
